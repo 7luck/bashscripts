@@ -35,7 +35,7 @@ printf "Will start using input file:%s with rows:%s. Do split after %s lines.\n"
 prefix=TESTDATA
 
 cat $inputfile | sed -e 's/^/"/g' \
-		     -e 's/$/"/g' > $temp;split -d -l $splitline $temp $prefix
+		     -e 's/$/",/g' > $temp;split -d -l $splitline $temp $prefix
 
 mkdir $resultdir
 mv $prefix* $resultdir
